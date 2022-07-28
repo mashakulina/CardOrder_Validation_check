@@ -3,8 +3,7 @@ package ru.netology;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.exactValue;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -74,16 +73,6 @@ public class TestInvalid {
         form.$("#root > div > form > div:nth-child(4) > button").click();
         $(".input_invalid .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
-
-    @Test
-    void shouldTestAll() {
-        open("http://localhost:7777");
-        SelenideElement form = $("#root > div > form");
-        form.$("[data-test-id=name] input").setValue("Иван Иванов");
-        form.$("[data-test-id=phone] input").setValue("+79672699504");
-        form.$("#root > div > form > div:nth-child(4) > button").click();
-        $(".input_invalid color: rgba(255, 92, 92, 1) !important");
-    }
-
+    
 
 }
